@@ -1,0 +1,22 @@
+{
+  "name": "supersurvey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules index",
+    "watch": "nodemon --experimental-modules index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node":"10.14.X"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0"
+  }
+}
