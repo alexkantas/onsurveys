@@ -11,4 +11,5 @@ mainRouter.get('/login', mainController.loginPage);
 mainRouter.post('/login', urlencodedParser, mainController.login);
 mainRouter.get('/register', mainController.registerPage);
 mainRouter.post('/register', urlencodedParser, mainController.register );
+
 export default mainRouter
