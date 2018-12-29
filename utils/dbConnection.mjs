@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
+dotenv.config()
 const db = mongoose.connection;
-// const mongo_url = 'mongodb://localhost:27017/superSurvey'
-const mongo_url = 'mongodb+srv://dbOnSurveys:HnhlsIYu5C3vVcTG@cluster0-dhtr7.mongodb.net/onsurvey?retryWrites=true'
+const mongo_url = process.env.MONGO_URL
 const connection_options = { useNewUrlParser: true, useCreateIndex: true}
 
 mongoose.connect(mongo_url, connection_options);

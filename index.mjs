@@ -2,14 +2,17 @@ import express from 'express'
 import path from 'path'
 import ejs from 'ejs'
 import mainRouter from './routes/mainRoutes'
+import dotenv from 'dotenv'
+import session from 'express-session'
 import dbConnection from './utils/dbConnection'
 
+dotenv.config()
 const app = express();
-const port = process.env.PORT || 8080;
-
+const port = process.env.PORT;
 
 //view engine that we use
-app.use(express.static(path.join(path.resolve('./'), 'public')))
+app.use('/public',express.static('public'))
+app.use('/public',express.static('node_modules/bootstrap/dist/'))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 app.engine('ejs', ejs.renderFile)

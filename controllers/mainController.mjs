@@ -40,3 +40,4 @@ export function login(request, response, next) {
     // const password = request.body.password
     response.json({ success: true, email, password });
 }
+
