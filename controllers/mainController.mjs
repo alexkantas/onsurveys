@@ -35,9 +35,6 @@ export async function register(request, response, next) {
 
 export function login(request, response, next) {
     const { username: email, password } = request.body
-    //ALLOS TROPOS 
-    // const email = request.body.username
-    // const password = request.body.password
     response.json({ success: true, email, password });
 }
 
