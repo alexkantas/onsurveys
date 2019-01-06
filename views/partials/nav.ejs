@@ -5,4 +5,9 @@
             <%= element.name %> </a>
     </li>
     <% }) %>
+    <% if(user){ %>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"> LogOut</a>
+        </li>
+    <% } %>
 </ul>
