@@ -4,22 +4,22 @@ const navBarElements = [{ name: 'Home', link: '/' }, { name: 'About', link: '/ab
 
 export function homePage(request, response, next) {
     const title = 'Home'
-    response.render('home', { title, navBarElements });
+    response.render('home', { title, navBarElements, user: request.user });
 }
 
 export function aboutPage(request, response, next) {
     const title = 'About'
-    response.render('about', { title, navBarElements });
+    response.render('about', { title, navBarElements, user: request.user });
 }
 
 export function loginPage(request, response, next) {
     const title = 'Login'
-    response.render('login', { title, navBarElements });
+    response.render('login', { title, navBarElements, user: request.user });
 }
 
 export function registerPage(request, response, next) {
     const title = 'Register'
-    response.render('register', { title, navBarElements });
+    response.render('register', { title, navBarElements, user: request.user });
 }
 
 export async function register(request, response, next) {
