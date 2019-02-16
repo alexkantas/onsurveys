@@ -1,6 +1,7 @@
 import User from '../models/user.model'
+import passport from 'passport'
 
-const navBarElements = [{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Login', link: '/login' }, { name: 'Register', link: '/register' }]
+const navBarElements = [{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Login', link: '/login', hideIfUserExists: true }, { name: 'Register', link: '/register', hideIfUserExists: true }]
 
 export function homePage(request, response, next) {
     const title = 'Home'
@@ -14,7 +15,7 @@ export function aboutPage(request, response, next) {
 
 export function loginPage(request, response, next) {
     const title = 'Login'
-    response.render('login', { title, navBarElements, user: request.user });
+    response.render('login', { title, navBarElements, user: request.user, wrongInput: false });
 }
 
 export function registerPage(request, response, next) {
@@ -34,7 +35,18 @@ export async function register(request, response, next) {
 }
 
 export function login(request, response, next) {
-    const { username: email, password } = request.body
-    response.json({ success: true, email, password });
+    const title = 'Login'
+    passport.authenticate('local', function (err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { response.render('login', { title, navBarElements, user: request.user, wrongInput: true }); }
+        request.logIn(user, function (err) {
+            if (err) { return next(err); }
+            return response.redirect('/admin');
+        });
+    })(request, response, next);
 }
 
+export function logout(request,response,next){
+    request.logout();
+    response.redirect('/')
+}
