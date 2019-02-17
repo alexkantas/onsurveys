@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/style.css" />
+
+    <title>ON-Surveys - <%=title%> Page</title>
+</head>
+
+<body>
+
+        <ul class="list-group">
+                <li class="list-group-item">User Profile</li>
+                <li class="list-group-item">My Surveys</li>
+        </ul>
+
+<h2 class="page-header">User Profile</h2>
+<div class="container">
+    <%if (user){%>
+    Hi <%=user.firstName%> <%=user.lastName%>
+    <%}%>
+</div>
+<% include ./partials/bottom %>
