@@ -7,6 +7,7 @@ import morgan from 'morgan'
 import session from 'express-session'
 import dbConnection from './utils/dbConnection'
 import adminRouter from './routes/adminRoutes.mjs';
+import userRouter from './routes/userRoutes.mjs';
 import passport from 'passport'
 import passportLocal from 'passport-local'
 import User from './models/user.model'
@@ -47,6 +48,7 @@ passport.use(new LocalStrategy(
 
 app.use('/', mainRouter)
 app.use('/admin', adminAuth, adminRouter)
+app.use('/user', userAuth, userRouter)
 
 app.use((req, res, next) => {
   res.status(404).json({ success: false, error: 'Page not exist' })
@@ -59,6 +61,14 @@ app.use((error, req, res, next) => {
 
 
 function adminAuth(req, res, next) {
+  if (req.user && req.user.isAdmin) {
+    next();
+  } else {
+    res.status(403).json({ success: false, error: 'Not Authorized' })
+  }
+}
+
+function userAuth(req, res, next) {
   if (req.user) {
     next();
   } else {
