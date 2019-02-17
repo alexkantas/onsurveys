@@ -6,5 +6,6 @@ const adminRouter = express.Router();
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 
 adminRouter.get('/', adminController.homePage);
+adminRouter.get('/addSurvey',adminController.addSurvey);
 
 export default adminRouter

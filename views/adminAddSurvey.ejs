@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/style.css" />
+
+    <title>ON-Surveys - <%=title%> Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.0.69/surveyeditor.css" type="text/css" rel="stylesheet" />
+    <script src="https://surveyjs.azureedge.net/1.0.69/survey.ko.min.js"></script>
+    <script src="https://surveyjs.azureedge.net/1.0.69/surveyeditor.min.js"></script>
+
+</head>
+
+<body>
+
+    <ul class="list-group">
+        <li class="list-group-item">Patients</li>
+        <li class="list-group-item">Surveys</li>
+        <li class="list-group-item">Create a Survey</li>
+
+    </ul>
+
+    <h2 class="page-header">Create a Survey</h2>
+    <div class="container">
+        <div id="surveyEditorContainer"></div>
+    </div>
+    <script>
+        SurveyEditor.StylesManager.applyTheme("winterstone");
+        var editorOptions = {
+            // show the embeded survey tab. It is hidden by default
+            showEmbededSurveyTab: true,
+            // hide the test survey tab. It is shown by default
+            showTestSurveyTab: false,
+            // hide the JSON text editor tab. It is shown by default
+            showJSONEditorTab: false,
+            // show the "Options" button menu. It is hidden by default 
+            showOptions: true,
+            items:[{title:'checkbox'}]
+        };
+        // pass the editorOptions into the constructor. It is an optional parameter.
+        var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
+    </script>
+
+    <% include ./partials/bottom %>

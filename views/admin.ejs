@@ -13,10 +13,17 @@
 
 <body>
 
-<h2 class="page-header">Admin</h2>
+        <ul class="list-group">
+                <li class="list-group-item">Patients</li>
+                <li class="list-group-item">Surveys</li>
+                <li class="list-group-item">Create a Survey</li>
+
+        </ul>
+
+<h2 class="page-header">Admin Profile</h2>
 <div class="container">
     <%if (user){%>
-    Hi Admin <%=user.name%>
+    Hi Dr. <%=user.firstName%> <%=user.lastName%>
     <%}%>
 </div>
 <% include ./partials/bottom %>
