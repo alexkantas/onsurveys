@@ -24,7 +24,7 @@ app.use(morgan('tiny'))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 app.engine('ejs', ejs.renderFile)
-app.use(session({ secret: '0n$urv4ys', resave: false, saveUninitialized: true, cookie: {} }))
+app.use(session({ secret: '0n$urv4ys', resave: true, saveUninitialized: true }))
 app.use(passport.initialize())
 app.use(passport.session());
 
@@ -56,15 +56,19 @@ app.use((req, res, next) => {
 
 app.use((error, req, res, next) => {
   console.log(error);
-  res.status(500).json({ success: false, error })
+  res.status(500).json({ success: false, error:error.message })
 })
 
 
 function adminAuth(req, res, next) {
+  // req.user = {
+  //   email:'ADMIN'
+  // }
+  // return next();
   if (req.user && req.user.isAdmin) {
     next();
   } else {
-    res.status(403).json({ success: false, error: 'Not Authorized' })
+    res.redirect('/login')
   }
 }
 

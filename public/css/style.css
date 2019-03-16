@@ -1,9 +1,143 @@
-body{
-  padding-top:5px;
+/* navbar style  */
+.navbar{
+  background-color: #09b0c3;
 }
-  
-  .footer{
-    position: fixed;
-    bottom: 1px;
-    left: 1px;
-  }
+.navbar-brand{
+  color:white;
+  font-family: 'Franklin Gothic Medium';
+  font-size: 25px;
+}
+.navbar-brand:hover{
+  color: white;
+}
+.btn-secondary{
+  background-color: #1d2026;
+  border: none;
+}
+.btn-secondary:hover{
+  background-color: #333;
+}
+
+/* sidebar style  */
+#sidebar{
+  background-color: #1d2026;
+  padding: 0;
+}
+#user{
+  color:white;
+  text-align: center;
+  margin-top: 1em;
+
+}
+.sidebar-btn{
+  margin-top: 1em;
+  text-align: left;
+  background-color: #1d2026;
+  border: none;
+  color:white
+}
+.sidebar-btn:hover{
+  background-color: #09b0c3;
+}
+
+/* main area style  */
+.mainarea{
+  background-color: #f2f2f2;
+}
+.fullheight{
+  height: 100vh;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+/* icons in sidebar*/
+.fas{
+margin-right: 5px;
+}
+i.fas.fa-user-md{
+  color:white;
+  font-size: 60px;
+  text-align: center;
+}
+i.fas.fa-user-alt{
+  color:white;
+  font-size: 60px;
+  text-align: center;
+}
+
+/* cards style */
+.card-deck{
+  margin-top: 15px;
+}
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+.btn-card{
+  background-color: #09b0c3;
+  border:none;
+  color: #000;
+}
+.btn-card:hover{
+  background-color: #0893a3;
+}
+.btn-card:active{
+  background-color: #0893a3;
+}
+
+/* List area and buttons */
+.list-area{
+  margin-top:15px;
+}
+.listButtons{
+  margin-top: 15px;
+}
+.listOptionsBtn{
+  margin-left: 15px;
+  /* width: 100px; */
+  color: black;
+  border:none;
+  background-color: #09b0c3;
+}
+.listOptionsBtn:hover{
+  background-color: #0893a3;
+}
+.listOptionsBtn:active{
+  background-color: #0893a3;
+}
+a.btn.btn-link{
+  margin-left: 15px;
+  width: 100px;
+  color: black;
+}
+.list-group-item.list-group-item-action.active{
+  background-color: #e3e5e8;
+  border:none;
+  color:black;
+}
+
+
+/* surveyjs builder  */
+.svd_commercial_container {
+  display: none;
+}
+.editor-tabs{
+  display: none;
+}
+
+
+/* tables  */
+.patientInfoTable{
+  margin-top: 15px;
+}
+
+.profileInfoInputs{
+  border:none;
+}
+
+.table{
+  width:35%;
+}
