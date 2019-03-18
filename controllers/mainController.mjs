@@ -38,10 +38,11 @@ export function login(request, response, next) {
     const title = 'Login'
     passport.authenticate('local', function (err, user, info) {
         if (err) { return next(err); }
-        if (!user) { response.render('login', { title, navBarElements, user: request.user, wrongInput: true }); }
+        if (!user) { return response.render('login', { title, navBarElements, user: request.user, wrongInput: true }); }
         request.logIn(user, function (err) {
             if (err) { return next(err); }
-            return response.redirect('/admin');
+            if(request.user.isAdmin) return response.redirect('/admin');
+            return response.redirect('/user');
         });
     })(request, response, next);
 }

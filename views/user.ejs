@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<% include ./partials/userTop %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/style.css" />
+            <div class="col-10 mainarea fullheight">
+                <div class="card-deck">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1519781542704-957ff19eff00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=846&q=80"
+                            class="card-img-top" alt="...">
+                        <div class="card-body  text-right">
+                            <h5 class="card-title">My profile</h5>
+                            <p class="card-text">Go to your profile's information.</p>
+                            <a href="/user/myProfile" class="btn btn-card ">My profile</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1521798416081-5c2c473b6533?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=837&q=80"
+                            class="card-img-top" alt="...">
+                        <div class="card-body  text-right">
+                            <h5 class="card-title">Surveys List</h5>
+                            <p class="card-text">List of all the surveys.</p>
+                            <a href="./userSurveyList.html" class="btn btn-card ">Surveys</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <title>ON-Surveys - <%=title%> Page</title>
-</head>
 
-<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
 
-        <ul class="list-group">
-                <li class="list-group-item">User Profile</li>
-                <li class="list-group-item">My Surveys</li>
-        </ul>
-
-<h2 class="page-header">User Profile</h2>
-<div class="container">
-    <%if (user){%>
-    Hi <%=user.firstName%> <%=user.lastName%>
-    <%}%>
-</div>
-<% include ./partials/bottom %>
+</html>

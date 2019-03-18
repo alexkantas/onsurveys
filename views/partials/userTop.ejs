@@ -7,17 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/css/fa-all.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
     <link rel="stylesheet" href="/public/css/style.css">
-
+    <link rel="stylesheet" href="/public/css/fa-all.css">
     <title>ON-Surveys - <%=title%></title>
 </head>
 
 <body>
     <nav class="navbar justify-content-between navbar-expand-lg">
-        <a class="navbar-brand" href="/admin">ON-Surveys</a>
+        <a class="navbar-brand" href="/user">ON-Surveys</a>
         <div class="btn-group form-inline">
             <button class="btn btn-secondary btn-md dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -34,23 +32,17 @@
             <div id="sidebar" class="col-2 fullheight">
                 <ul>
                     <div id="user">
-                        <i class="fas fa-user-md"></i>
-                        <p>ADMINISTRATOR</p>
+                        <i class="fas fa-user-alt"></i>
+                        <p><%= user.firstName%> <%= user.lastName%></p>
                     </div>
                     <li>
-                        <a class="btn btn-block sidebar-btn" href="/admin/patientList"><i
-                                class="fas fa-list-alt"></i>Patient
-                            List</a>
+                        <a class="btn  btn-block sidebar-btn" href="/user/myProfile"><i class="fas fa-user-circle"></i>My
+                            Profile</a>
                     </li>
                     <li>
-                        <a class="btn btn-block sidebar-btn" href="/admin/surveyList"><i class="fas fa-poll-h"></i>
+                        <a class="btn btn-block sidebar-btn" href="./userSurveyList.html"><i class="fas fa-list-alt"></i>
 
                             Surveys List</a>
-                    </li>
-                    <li>
-                        <a class="btn btn-block sidebar-btn" href="/admin/createSurvey"><i
-                                class="fas fa-folder-plus"></i>
-                            Create Survey</a>
                     </li>
                 </ul>
             </div>

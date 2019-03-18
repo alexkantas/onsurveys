@@ -18,6 +18,11 @@ export async function patientList(req, res, next) {
     res.render('patientList', { title, user: req.user, patients })
 }
 
+
+export async function surveyList(req, res, next) {
+    const title = 'Survey List'
+}
+
 export async function patientProfile(req, res, next) {
     try {
         const title = 'Patient Profile'
@@ -29,4 +34,8 @@ export async function patientProfile(req, res, next) {
     catch (err) {
         next(err)
     }
+}
+
+export async function createSurvey(req, res, next) {
+    const title = 'Create Survey'
 }

@@ -20,6 +20,7 @@ const LocalStrategy = passportLocal.Strategy;
 //view engine that we use
 app.use('/public', express.static('public'))
 app.use('/public', express.static('node_modules/bootstrap/dist/'))
+app.use('/public/fa', express.static('node_modules/font-awesome'))
 app.use(morgan('tiny'))
 app.set('views', './views')
 app.set('view engine', 'ejs')
@@ -29,10 +30,11 @@ app.use(passport.initialize())
 app.use(passport.session());
 
 passport.serializeUser(function (user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser(function (user, done) {
+passport.deserializeUser(async function (id, done) {
+  const user = await User.findById(id)
   done(null, user);
 });
 
@@ -73,10 +75,14 @@ function adminAuth(req, res, next) {
 }
 
 function userAuth(req, res, next) {
+  //  req.user = {
+  //   email:'ADMIN'
+  // }
+  // return next();
   if (req.user) {
     next();
   } else {
-    res.status(403).json({ success: false, error: 'Not Authorized' })
+    res.redirect('/login')
   }
 }
 
