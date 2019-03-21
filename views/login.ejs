@@ -1,7 +1,7 @@
 <% include ./partials/top %>
 
-<h2 class="page-header">Login</h2>
-<div class="container">
+<!-- <h2 class="page-header">Login</h2> -->
+<div class="login-container">
 
     <% if(wrongInput){ %>
     <div class="alert alert-danger" role="alert">
@@ -9,16 +9,20 @@
     </div>
     <% } %>
 
-    <form method="post" action="/login">
+    <form method="post" action="/login" class="login-form">
+        <h4 class="form-header">Login form </h4>
         <div class="form-group">
-            <label>Email</label>
+            <!-- <label id="label">Email</label> -->
             <input type="email" class="form-control" name="username" placeholder="Email">
         </div>
         <div class="form-group">
-            <label>Password</label>
+            <!-- <label id="label">Password</label> -->
             <input type="password" class="form-control" name="password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-success">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div>
+            <p23 id="form-message"> Not a member? <a href="/register" id="link"> click to register </a> </p23>
+        </div>
     </form>
 
 </div>
