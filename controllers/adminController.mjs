@@ -36,6 +36,7 @@ export async function patientProfile(req, res, next) {
     }
 }
 
-export async function createSurvey(req, res, next) {
+export function createSurvey(req, res, next) {
     const title = 'Create Survey'
+    res.render('createSurvey', { title, user: req.user} )
 }

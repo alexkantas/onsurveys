@@ -3,6 +3,7 @@ const nameInput = document.getElementById('name-input')
 const lastnameInput = document.getElementById('lastName-input')
 const passwordInput = document.getElementById('password-input')
 const idInput = document.getElementById('userId')
+const fullnameId = document.getElementById('user-fullname')
 
 btnUpdate.addEventListener('click', async e => {
     console.log(nameInput.value)
@@ -26,6 +27,7 @@ btnUpdate.addEventListener('click', async e => {
         })
         console.log(response)
         alert('Profile info updated succesully')
+        fullnameId.innerText= `${response.name} ${response.lastName}`
     }
     catch (err) {
         console.error(err)

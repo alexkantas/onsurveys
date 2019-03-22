@@ -1,7 +1,7 @@
 import User from '../models/user.model'
 import passport from 'passport'
 
-const navBarElements = [{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Login', link: '/login', hideIfUserExists: true }, { name: 'Register', link: '/register', hideIfUserExists: true }]
+const navBarElements = []
 
 export function homePage(request, response, next) {
     const title = 'Home'

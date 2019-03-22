@@ -1,32 +1,36 @@
-<ul class="nav justify-content-end nav-pills">
-    <% navBarElements.forEach(element =>{ %>
 
-    <% if((user && element.hideIfUserExists!==true)){ %>
-    <li class="nav-item">
-        <a class="nav-link  <% if(title==element.name) {%> active <%}%> " href="<%=element.link%>">
-            <%= element.name %> </a>
-    </li>
-    <% }  else%>
-    <% if(!user && element.showOnlyIfUserExists!==true){ %>
-    <li class="nav-item">
-        <a class="nav-link  <% if(title==element.name) {%> active <%}%> " href="<%=element.link%>">
-            <%= element.name %> </a>
-    </li>
-    <% } %>
-
-    <% }) %>
-
-    <% if(user){ %>
-    <div class="btn-group">
-        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <%= user.email %> 
-        </button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="/user">Profile</a>
-            <a class="dropdown-item" href="/logout">Log Out</a>
-        </div>
-    </div>
-    <% } %>
-
-</ul>
+<nav class="navbar justify-content-between navbar-expand-lg">
+        <a class="navbar-brand" href="/admin">ON-Surveys</a>
+        <ul class="nav justify-content-end nav-pills">
+                <% navBarElements.forEach(element =>{ %>
+            
+                <% if((user && element.hideIfUserExists!==true)){ %>
+                <li class="nav-item">
+                    <a class="nav-link  <% if(title==element.name) {%> active <%}%> " href="<%=element.link%>">
+                        <%= element.name %> </a>
+                </li>
+                <% }  else%>
+                <% if(!user && element.showOnlyIfUserExists!==true){ %>
+                <li class="nav-item">
+                    <a class="nav-link  <% if(title==element.name) {%> active <%}%> " href="<%=element.link%>">
+                        <%= element.name %> </a>
+                </li>
+                <% } %>
+            
+                <% }) %>
+            
+                <% if(user){ %>
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <%= user.email %> 
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/user">Profile</a>
+                        <a class="dropdown-item" href="/logout">Log Out</a>
+                    </div>
+                </div>
+                <% } %>
+            
+            </ul>
+    </nav>

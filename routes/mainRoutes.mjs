@@ -5,7 +5,7 @@ import * as mainController from '../controllers/mainController'
 const mainRouter = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-mainRouter.get('/', mainController.homePage);
+mainRouter.get('/', mainController.loginPage);
 mainRouter.get('/about', mainController.aboutPage);
 mainRouter.get('/login', mainController.loginPage);
 mainRouter.post('/login', urlencodedParser, mainController.login);

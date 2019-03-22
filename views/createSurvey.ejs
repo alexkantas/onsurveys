@@ -1,15 +1,17 @@
 <% include ./partials/adminTop %>
 
-        <div class="col-10 mainarea fullheight">
-            <div id="surveyEditorContainer"></div>
-        </div>
+<div class="col-10 mainarea fullheight">
+    <div id="surveyEditorContainer"></div>
+    <div class="button-save">
+        <button class="btn btn-success" id="SaveSurveyBtn">Save Survey</button>
     </div>
+</div>
+</div>
 </div>
 </div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="./js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -19,6 +21,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+<script src="https://surveyjs.azureedge.net/1.0.73/survey.ko.min.js"></script>
+<script src="https://surveyjs.azureedge.net/1.0.73/surveyeditor.min.js"></script>
+<script src="/public/js/main.js"></script>
+
 </body>
 
 </html>

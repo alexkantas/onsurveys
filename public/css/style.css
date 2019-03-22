@@ -45,7 +45,7 @@
   background-color: #f2f2f2;
 }
 .fullheight{
-  height: 100vh;
+  height: 130vh;
 }
 ul{
   list-style: none;
@@ -88,9 +88,13 @@ i.fas.fa-user-alt{
   background-color: #0893a3;
 }
 
-/* List area and buttons */
+/* List area and list buttons */
 .list-area{
   margin-top:15px;
+  float:left;
+  width:1000px;
+  overflow-y: auto;
+  height: 80%;
 }
 .listButtons{
   margin-top: 15px;
@@ -124,9 +128,6 @@ a.btn.btn-link{
 .svd_commercial_container {
   display: none;
 }
-.editor-tabs{
-  display: none;
-}
 
 
 /* tables  */
@@ -140,4 +141,15 @@ a.btn.btn-link{
 
 .table{
   width:35%;
+}
+
+.svd_container.svd_container.sv_bootstrap_css .btn-primary {
+  color: rgb(255, 255, 255);
+  background-color: #1d2026 !important;
+  border-color:#1d2026 !important;
+}
+
+.button-save{
+  float: right;
+  margin: 10px;
 }
