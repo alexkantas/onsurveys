@@ -19,5 +19,32 @@ const survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOpti
 
 
 SaveSurveyBtn.addEventListener('click', async e => {
-    console.log(survey.text)
+    const surveyTitle = JSON.parse(survey.text).title;
+    
+    if(!surveyTitle) {
+        alert ('Please give a title to the survey');
+        return;    
+    }
+
+    const requestData = {surveyText: survey.text, surveyTitle}
+
+    try {
+        const response = await jQuery.ajax({
+            method: "POST",
+            url: "/admin/createSurvey",
+            data: JSON.stringify(requestData),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        })
+        console.log(response)
+        console.log('Survey Data:',response.surveyData)
+        console.log('Title:',response.title)
+        alert('Survey created')
+    }
+    catch (err) {
+        console.error(err)
+        alert('Something went wrong :-(')
+    }
 })
+
+

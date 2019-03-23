@@ -14,16 +14,15 @@ export function myProfile(req, res, next) {
 
 export async function updateMyProfile(req, res, next) {
     try {
-        const { id, name, lastName, email, password } = req.body
+        const { id, name, lastName, password } = req.body
         const user = await User.findById(ObjectId(id))
         if(!user) throw Error(`User with id [${id}] not found`)
         if(name) user.firstName = name
         if(lastName) user.lastName = lastName
-        if(email) user.email = email
         if(password) user.password = password
 
         await user.save();
-        res.json({ id, name, lastName, email, password, user })
+        res.json({ id, name, lastName, email, user })
     } catch (err) {
         next(err)
     }

@@ -21,8 +21,7 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         required: false
-    },
-    dateOfBirth: Date
+    }
 });
 
 export default mongoose.model('User', userSchema);

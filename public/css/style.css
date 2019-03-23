@@ -143,12 +143,55 @@ a.btn.btn-link{
   width:35%;
 }
 
+/* EDITOR COLORS */
+
 .svd_container.svd_container.sv_bootstrap_css .btn-primary {
   color: rgb(255, 255, 255);
   background-color: #1d2026 !important;
   border-color:#1d2026 !important;
 }
 
+.svd_container.svd_container.sv_bootstrap_css .svd-secondary-icon .svd-svg-icon {
+  fill:  #1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .nav-tabs > li.active > a {
+  color: #1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .nav-tabs > li.cli > a {
+  color: #1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css a:hover {
+  color: #1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .svd-primary-icon .svd-svg-icon {
+  fill: #1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .svd-main-color {
+  color:#1d2026 !important;
+}
+.svd_container.sv_bootstrap_css tr:focus, .svd_container.sv_bootstrap_css input[type="checkbox"]:focus + span.checkmark {
+  outline-color:#1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .svd-main-background-color {
+  background-color:#1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .icon-gearactive .svd-svg-icon {
+  fill: #1d2026 !important;
+}
+
+.svd_container.svd_container.sv_bootstrap_css .svd_custom_select::before {
+  background-color: #1d2026 !important;
+}
+
+.svd_container.svd_container.sv_bootstrap_css .svd-main-border-color {
+  border-color:#1d2026 !important;
+}
+span:focus, .svd_container.sv_bootstrap_css div:focus, .svd_container.sv_bootstrap_css tr:focus, .svd_container.sv_bootstrap_css input[type="checkbox"]:focus + span.checkmark {
+  outline-color: #1d2026 !important;
+}
+.svd_container.svd_container.sv_bootstrap_css .form-control:focus {
+  border-color: #1d2026 !important;
+}
 .button-save{
   float: right;
   margin: 10px;
