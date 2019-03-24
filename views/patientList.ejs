@@ -7,7 +7,7 @@
             <% patients.forEach(patient =>{ %>
             <div href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1"><%= patient.firstName %> <%= patient.lastName %></h5>
+                    <h6 class="mb-1"><%= patient.firstName %> <%= patient.lastName %></h6>
                 </div>
                 <div class="d-flex w-100 justify-content-end">
                     <a href="/admin/patientProfile/<%= patient._id %>" class="btn listOptionsBtn"><i class="fas fa-user"></i>Info</a>
@@ -16,8 +16,6 @@
             <% }) %>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 

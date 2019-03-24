@@ -106,3 +106,13 @@ body{
 #form-message{
 	color:#d0d7e5;
 }
+
+.navbar-brand{
+	color:white;
+  font-family: 'Franklin Gothic Medium';
+  font-size: 25px;
+}
+
+.navbar-brand:hover{
+  color: white;
+}
