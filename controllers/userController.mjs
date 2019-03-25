@@ -20,9 +20,8 @@ export async function updateMyProfile(req, res, next) {
         if(name) user.firstName = name
         if(lastName) user.lastName = lastName
         if(password) user.password = password
-
         await user.save();
-        res.json({ id, name, lastName, email, user })
+        res.json({ id, name, lastName, user })
     } catch (err) {
         next(err)
     }

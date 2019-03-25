@@ -1,0 +1,43 @@
+<% include ./partials/adminTop %>
+
+<div class="col-10 mainarea fullheight">
+    <div id="surveyEditorContainer"></div>
+
+    <div class="button-save">
+        <button class="btn btn-success" id="UpdateSurveyBtn">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID" style="display: none"></span>
+           <span id="saveSurveyID">Update Survey</span>
+        </button>
+    </div>    
+    <div class="button-save">
+        <button class="btn btn-danger" id="DeleteSurveyBtn">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID" style="display: none"></span>
+           <span id="saveSurveyID">Delete Survey</span>
+        </button>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script>
+const surveyData = `<%- surveyData %>`;
+const surveyId = `<%=surveyId%>`;
+console.log(surveyData);
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+<script src="https://surveyjs.azureedge.net/1.0.73/survey.ko.min.js"></script>
+<script src="https://surveyjs.azureedge.net/1.0.73/surveyeditor.min.js"></script>
+<script src="/public/js/editSurvey.js"></script>
+
+</body>
+
+</html>

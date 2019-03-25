@@ -18,7 +18,7 @@
                     <% if(survey.visible === false){ %>
                         <a href="#" id="<%=survey._id%>" class="btn btn-link listOptionsLinkBtn" data-survey-id="<%=survey._id%>"><i class="fas fa-eye-slash  text-muted"></i>Hidden</a>
                     <% } %>
-                    <a href="#" class="btn listOptionsBtn" data-survey-id="<%=survey._id%>"><i class="fas fa-edit"></i>Edit</a>
+                    <a href="/admin/editSurvey/<%=survey._id%>" class="btn listOptionsBtn" data-survey-id="<%=survey._id%>"><i class="fas fa-edit"></i>Edit</a>
                 </div>
             </div>
             <% }) %>

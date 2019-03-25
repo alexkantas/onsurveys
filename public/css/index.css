@@ -5,7 +5,6 @@ body{
 	background-position:center;
 	display: flex;
 	flex-direction: column;
-	
 }
 
 .main-content{
@@ -13,8 +12,9 @@ body{
 }
 
 .login-container{
-	padding: 8% 0 0;
-	margin: auto;
+	width: 400px;
+	padding: 4% 0 0;
+	margin-top: auto;
 	margin-left:140px;
 }
 
@@ -46,7 +46,7 @@ body{
 		width: 100%;
 		margin-left: 0;
 	}
-  }
+}
 
 .register-form{
 	position: relative;
@@ -108,11 +108,11 @@ body{
 }
 
 .navbar-brand{
-	color:white;
+	color:rgb(9, 3, 66);
   font-family: 'Franklin Gothic Medium';
   font-size: 25px;
 }
 
 .navbar-brand:hover{
-  color: white;
+	color:rgb(9, 3, 66);
 }

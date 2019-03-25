@@ -52,7 +52,7 @@ export async function createSurvey(req, res, next) {
         await survey.save();
         console.log('HA HA trollarw ton  chrome kai den tou stelnw amesws to response');
         setTimeout(() => {
-            res.json({ success: true, surveyData, title })
+            res.status(201).json({ success: true, surveyData, title })
         }, 10000)
 
     }
@@ -69,6 +69,49 @@ export async function surveyVisibility(req, res, next) {
         survey.visible = !survey.visible;
         await survey.save();
         res.json({ success: true, survey })
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
+export async function editSurveyPage(req, res, next) {
+    try {
+        const title = 'Edit Survey'
+        const surveyId = req.params.id
+        const survey = await Survey.findById(ObjectId(surveyId))
+        if (!survey) throw Error(`Survey with id ${surveyId} not found`)
+        const surveyData = survey.surveyData
+        res.render('editSurvey', { title, user: req.user, surveyData, surveyId })
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
+
+export async function editSurvey(req, res, next) {
+    try {
+        const { surveyTitle, surveyText: surveyData, surveyId } = req.body;
+        const survey = await Survey.findById(ObjectId(surveyId))
+        if (!survey) throw Error(`Survey with id ${surveyId} not found`)
+        survey.title = surveyTitle
+        survey.surveyData = surveyData
+        await survey.save();
+        res.json({ success: true, survey })
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
+export async function deleteSurvey(req, res, next) {
+    try {
+        const surveyId = req.params.id
+        const survey = await Survey.findById(ObjectId(surveyId))
+        if (!survey) throw Error(`Survey with id ${surveyId} not found`)
+        await Survey.deleteOne({_id:surveyId})
+        res.json({ success: true })
     }
     catch (err) {
         next(err)
