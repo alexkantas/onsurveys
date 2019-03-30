@@ -8,5 +8,8 @@ const jsonParser = bodyParser.json();
 userRouter.get('/', userController.homePage);
 userRouter.get('/myProfile', userController.myProfile);
 userRouter.put('/myProfile/', jsonParser, userController.updateMyProfile);
+userRouter.get('/userSurveyList', userController.userSurveyList);
+userRouter.get('/answerSurvey/:id', userController.answerSurveyPage);
+userRouter.get('/viewAnsweredSurvey', userController.viewAnsweredSurvey);
 
 export default userRouter

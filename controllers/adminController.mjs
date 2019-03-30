@@ -42,7 +42,7 @@ export function createSurveyPage(req, res, next) {
 }
 
 export async function createSurvey(req, res, next) {
-    // Step 2 (This code run on OlyBoo PC  or on Heroku Computers)
+    // Step 2 (This code run on PC  or on Heroku Computers)
     console.log('step2');
     try {
         const { surveyTitle: title, surveyText: surveyData } = req.body;
@@ -54,7 +54,6 @@ export async function createSurvey(req, res, next) {
         setTimeout(() => {
             res.status(201).json({ success: true, surveyData, title })
         }, 10000)
-
     }
     catch (error) {
         next(error)

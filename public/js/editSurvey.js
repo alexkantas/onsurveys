@@ -4,21 +4,15 @@ const loadingID = document.getElementById('loadingID')
 const saveSurveyID = document.getElementById('saveSurveyID')
 
 const editorOptions = {
-    // show the embeded survey tab. It is hidden by default
     showEmbededSurveyTab: false,
-    // hide the test survey tab. It is shown by default
     showTestSurveyTab: true,
-    // hide the JSON text editor tab. It is shown by default
     showJSONEditorTab: true,
-    // show the "Options" button menu. It is hidden by default 
+    showTranslationTab: true,
     showOptions: false,
     showPropertyGrid: false,
     questionTypes: ["text", "checkbox", "radiogroup", "dropdown", "rating", "matrix", "comment"]
 
 };
-
-console.log('EDIT SURVEY!!!!');
-
 // pass the editorOptions into the constructor. It is an optional parameter.
 const survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
 survey.text = surveyData

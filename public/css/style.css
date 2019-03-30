@@ -197,7 +197,13 @@ span:focus, .svd_container.sv_bootstrap_css div:focus, .svd_container.sv_bootstr
 .svd_container.svd_container.sv_bootstrap_css .form-control:focus {
   border-color: #1d2026 !important;
 }
+
 .button-save{
   float: right;
   margin: 10px;
+}
+
+.answerSurveyContainer{
+  max-height: 80vh;
+  overflow: auto;
 }
