@@ -207,3 +207,8 @@ span:focus, .svd_container.sv_bootstrap_css div:focus, .svd_container.sv_bootstr
   max-height: 80vh;
   overflow: auto;
 }
+
+#createsurveyListArea{
+  max-height: 80vh;
+
+}

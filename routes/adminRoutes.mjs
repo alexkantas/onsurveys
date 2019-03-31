@@ -15,4 +15,6 @@ adminRouter.post('/createSurvey', jsonParser, adminController.createSurvey);
 adminRouter.get('/editSurvey/:id', adminController.editSurveyPage);
 adminRouter.put('/editSurvey/',jsonParser, adminController.editSurvey);
 adminRouter.delete('/survey/:id', adminController.deleteSurvey);
+adminRouter.get('/viewAnsweredSurvey', adminController.viewAnsweredSurvey);
+
 export default adminRouter

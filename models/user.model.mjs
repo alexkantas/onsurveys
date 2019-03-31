@@ -1,5 +1,11 @@
 import mongoose from 'mongoose'
 
+const answeredSurveysSchema = new mongoose.Schema({
+    surveyData: String,
+    surveyAnswers: String,
+    surveyId: mongoose.Schema.Types.ObjectId
+}, { _id: false })
+
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -21,7 +27,8 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         required: false
-    }
+    },
+    answeredSurveys: [answeredSurveysSchema]
 });
 
 export default mongoose.model('User', userSchema);

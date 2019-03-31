@@ -19,10 +19,10 @@ export async function updateMyProfile(req, res, next) {
     try {
         const { id, name, lastName, password } = req.body
         const user = await User.findById(ObjectId(id))
-        if(!user) throw Error(`User with id [${id}] not found`)
-        if(name) user.firstName = name
-        if(lastName) user.lastName = lastName
-        if(password) user.password = password
+        if (!user) throw Error(`User with id [${id}] not found`)
+        if (name) user.firstName = name
+        if (lastName) user.lastName = lastName
+        if (password) user.password = password
         await user.save();
         res.json({ id, name, lastName, user })
     } catch (err) {
@@ -30,7 +30,7 @@ export async function updateMyProfile(req, res, next) {
     }
 }
 
-export async function userSurveyList(req, res, next){
+export async function userSurveyList(req, res, next) {
     const title = ' My Survey List'
     const surveys = await Survey.find().sort({ createdAt: -1 })
     res.render('userSurveyList', { title, user: req.user, surveys, moment })
@@ -50,11 +50,25 @@ export async function answerSurveyPage(req, res, next) {
     }
 }
 
+export async function answerSurvey(req, res, next) {
+    try {
+        const { surveyData, surveyId, surveyAnswers } = req.body
+        const userId = req.user._id
+        const user = await User.findById(ObjectId(userId));
+        const alreadyAnswered = user.answeredSurveys.find(element => element.surveyId == surveyId)
+        if (alreadyAnswered) throw Error(`Survey with id [${surveyId}] is already answered`)
+        user.answeredSurveys.push({ surveyData, surveyAnswers, surveyId })
+        user.save();
+        res.json({ success: true })
+    } catch (err) {
+        next(err)
+    }
+}
 
 export async function viewAnsweredSurvey(req, res, next) {
     try {
         const title = ' View Answers'
-    
+
         res.render('viewUserAnsweredSurvey', { title, user: req.user })
     }
     catch (err) {

@@ -1,7 +1,9 @@
 <% include ./partials/adminTop %>
 
 <div class="col-10 mainarea fullheight">
-    <div id="surveyEditorContainer"></div>
+    <div class="list-area" id="createsurveyListArea">
+        <div id="surveyEditorContainer"></div>
+    </div>
     <div class="button-save">
         <button class="btn btn-success" id="SaveSurveyBtn">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID"
@@ -21,6 +23,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 <script src="https://surveyjs.azureedge.net/1.0.73/survey.ko.min.js"></script>
 <script src="https://surveyjs.azureedge.net/1.0.73/surveyeditor.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
 <script src="/public/js/main.js"></script>
 
 </body>

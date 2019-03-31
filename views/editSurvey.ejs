@@ -1,27 +1,31 @@
 <% include ./partials/adminTop %>
 
 <div class="col-10 mainarea fullheight">
-    <div id="surveyEditorContainer"></div>
+    <div class="list-area" id="createsurveyListArea">
 
+        <div id="surveyEditorContainer"></div>
+    </div>
     <div class="button-save">
         <button class="btn btn-success" id="UpdateSurveyBtn">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID" style="display: none"></span>
-           <span id="saveSurveyID">Update Survey</span>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID"
+                style="display: none"></span>
+            <span id="saveSurveyID">Update Survey</span>
         </button>
-    </div>    
+    </div>
     <div class="button-save">
         <button class="btn btn-danger" id="DeleteSurveyBtn">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID" style="display: none"></span>
-           <span id="saveSurveyID">Delete Survey</span>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loadingID"
+                style="display: none"></span>
+            <span id="saveSurveyID">Delete Survey</span>
         </button>
     </div>
 </div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script>
-const surveyData = `<%- surveyData %>`;
-const surveyId = `<%=surveyId%>`;
-console.log(surveyData);
+    const surveyData = `<%- surveyData %>`;
+    const surveyId = `<%=surveyId%>`;
+    console.log(surveyData);
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -31,6 +35,7 @@ console.log(surveyData);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 <script src="https://surveyjs.azureedge.net/1.0.73/survey.ko.min.js"></script>
 <script src="https://surveyjs.azureedge.net/1.0.73/surveyeditor.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
 <script src="/public/js/editSurvey.js"></script>
 
 </body>

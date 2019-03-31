@@ -116,3 +116,14 @@ export async function deleteSurvey(req, res, next) {
         next(err)
     }
 }
+
+export async function viewAnsweredSurvey(req, res, next) {
+    try {
+        const title = ' View Answers'
+    
+        res.render('viewAnsweredSurvey', { title, user: req.user })
+    }
+    catch (err) {
+        next(err)
+    }
+}

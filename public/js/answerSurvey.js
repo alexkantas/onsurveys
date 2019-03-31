@@ -1,13 +1,29 @@
-// var data = {"question1":"item1","question2":"Dispaly mode"};
-var surveyJSON = JSON.parse(surveyData)
+const surveyJSON = JSON.parse(surveyData)
 const survey = new Survey.Model(surveyJSON);
 console.log(surveyJSON);
+
 $("#surveyContainer").Survey({
     model: survey,
-    // mode:'display',
-    // data,
-    onComplete(survey) {
-        var resultAsString = JSON.stringify(survey.data);
-        console.log(resultAsString); //send Ajax request to your web server.
+    async onComplete(survey) {
+        try {
+            const surveyAnswers = JSON.stringify(survey.data);
+            const requestData = { surveyData, surveyId, surveyAnswers }
+
+            const response = await jQuery.ajax({
+                method: "POST",
+                url: "/user/answerSurvey",
+                data: JSON.stringify(requestData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            })
+
+            console.log(response);
+            alert('Survey submitted successfully')
+        }
+        catch (err) {
+            survey.clear(false)
+            console.error(err)
+            alert('Something went wrong while submiting your survey :-(')
+        }
     }
 });
