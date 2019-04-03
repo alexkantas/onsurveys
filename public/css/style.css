@@ -52,6 +52,9 @@ ul{
   padding: 0;
 }
 
+.alert-danger{
+  color:white;
+}
 /* icons in sidebar*/
 .fas{
 margin-right: 5px;
@@ -197,6 +200,22 @@ span:focus, .svd_container.sv_bootstrap_css div:focus, .svd_container.sv_bootstr
 .svd_container.svd_container.sv_bootstrap_css .form-control:focus {
   border-color: #1d2026 !important;
 }
+.sv_main input[type="button"], .sv_main button {
+  background-color: #1d2026 !important;
+}
+.svd_container span:focus{
+  background-color: #1d2026 !important;
+
+}
+.sv_main .sv_body {
+  border-top: 2px solid #1d2026 !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #1d2026;
+}
 
 .button-save{
   float: right;
@@ -211,4 +230,11 @@ span:focus, .svd_container.sv_bootstrap_css div:focus, .svd_container.sv_bootstr
 #createsurveyListArea{
   max-height: 80vh;
 
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  display: inline;
 }

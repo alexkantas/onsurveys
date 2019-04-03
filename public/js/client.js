@@ -26,11 +26,11 @@ btnUpdate.addEventListener('click', async e => {
             dataType: "json",
         })
         console.log(response)
-        alert('Profile info updated succesully')
+        alert('Profile information updated succesully')
         fullnameId.innerText= `${response.name} ${response.lastName}`
     }
     catch (err) {
         console.error(err)
-        alert('Something went wrong :-(')
+        alert('Something went wrong.')
     }
 })

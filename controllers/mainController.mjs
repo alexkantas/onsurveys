@@ -20,17 +20,22 @@ export function loginPage(request, response, next) {
 
 export function registerPage(request, response, next) {
     const title = 'Register'
-    response.render('register', { title, navBarElements, user: request.user });
+    response.render('register', { title, navBarElements, user: request.user, wrongInput: false });
 }
 
 export async function register(request, response, next) {
+    const title = 'Register'
     try {
         const { name: firstName, lname: lastName, email, password } = request.body
         const user = new User({ firstName, lastName, email, password })
         await user.save();
-        response.json({ success: true, user: user });
+        // response.json({ success: true, user: user });
+        response.redirect('/login');
+
     } catch (error) {
-        response.json({ success: false, error })
+        // throw Error(`Something went wrong.`)
+        response.render('register', {title, navBarElements, user: request.user, wrongInput: true });
+        // response.json({ success: false, error })
     }
 }
 
