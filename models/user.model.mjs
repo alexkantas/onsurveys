@@ -3,8 +3,9 @@ import mongoose from 'mongoose'
 const answeredSurveysSchema = new mongoose.Schema({
     surveyData: String,
     surveyAnswers: String,
-    surveyId: mongoose.Schema.Types.ObjectId
-}, { _id: false })
+    surveyId: mongoose.Schema.Types.ObjectId,
+    surveyTitle: String
+}, { _id: false,timestamps: true })
 
 const userSchema = new mongoose.Schema({
     firstName: {

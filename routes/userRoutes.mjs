@@ -11,5 +11,5 @@ userRouter.put('/myProfile/', jsonParser, userController.updateMyProfile);
 userRouter.get('/userSurveyList', userController.userSurveyList);
 userRouter.get('/answerSurvey/:id', userController.answerSurveyPage);
 userRouter.post('/answerSurvey', jsonParser, userController.answerSurvey);
-userRouter.get('/viewAnsweredSurvey', userController.viewAnsweredSurvey);
+userRouter.get('/viewAnsweredSurvey/:id', userController.viewAnsweredSurvey);
 export default userRouter

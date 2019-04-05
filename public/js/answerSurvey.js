@@ -7,7 +7,8 @@ $("#surveyContainer").Survey({
     async onComplete(survey) {
         try {
             const surveyAnswers = JSON.stringify(survey.data);
-            const requestData = { surveyData, surveyId, surveyAnswers }
+            const surveyTitle = surveyJSON.title
+            const requestData = { surveyData, surveyId, surveyAnswers, surveyTitle }
 
             const response = await jQuery.ajax({
                 method: "POST",

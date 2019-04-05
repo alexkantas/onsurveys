@@ -12,7 +12,8 @@ export function homePage(req, res, next) {
 
 export function myProfile(req, res, next) {
     const title = 'My Profile'
-    res.render('myProfile', { title, user: req.user })
+    const surveys = req.user.answeredSurveys.sort((a,b)=> -(a.createdAt - b.createdAt) )
+    res.render('myProfile', { title, user: req.user, surveys, moment })
 }
 
 export async function updateMyProfile(req, res, next) {
@@ -33,7 +34,10 @@ export async function updateMyProfile(req, res, next) {
 export async function userSurveyList(req, res, next) {
     const title = ' My Survey List'
     const surveys = await Survey.find().sort({ createdAt: -1 })
-    res.render('userSurveyList', { title, user: req.user, surveys, moment })
+    const answeredSurveys = req.user.answeredSurveys
+    const answeredSurveysIds = answeredSurveys.map(survey => (survey.surveyId).toString())
+    const surveysExcludeAnsweredOnes = surveys.filter(survey => (!answeredSurveysIds.includes(survey._id.toString()) && survey.visible == true))
+    res.render('userSurveyList', { title, user: req.user, surveys: surveysExcludeAnsweredOnes, moment })
 }
 
 export async function answerSurveyPage(req, res, next) {
@@ -52,12 +56,12 @@ export async function answerSurveyPage(req, res, next) {
 
 export async function answerSurvey(req, res, next) {
     try {
-        const { surveyData, surveyId, surveyAnswers } = req.body
+        const { surveyData, surveyId, surveyAnswers, surveyTitle } = req.body
         const userId = req.user._id
         const user = await User.findById(ObjectId(userId));
         const alreadyAnswered = user.answeredSurveys.find(element => element.surveyId == surveyId)
         if (alreadyAnswered) throw Error(`Survey with id [${surveyId}] is already answered`)
-        user.answeredSurveys.push({ surveyData, surveyAnswers, surveyId })
+        user.answeredSurveys.push({ surveyData, surveyAnswers, surveyId, surveyTitle })
         user.save();
         res.json({ success: true })
     } catch (err) {
@@ -68,8 +72,12 @@ export async function answerSurvey(req, res, next) {
 export async function viewAnsweredSurvey(req, res, next) {
     try {
         const title = ' View Answers'
-
-        res.render('viewUserAnsweredSurvey', { title, user: req.user })
+        const answeredSurveys = req.user.answeredSurveys
+        const surveyId = req.params.id
+        const survey = answeredSurveys.find(survey => surveyId == survey.surveyId.toString())
+        const surveyData = survey.surveyData
+        const surveyAnswers = survey.surveyAnswers
+        res.render('viewUserAnsweredSurvey', { title, user: req.user , surveyData, surveyAnswers})
     }
     catch (err) {
         next(err)
