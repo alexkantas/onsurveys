@@ -18,7 +18,7 @@ $("#surveyContainer").Survey({
                 dataType: "json"
             })
 
-            console.log(response);
+            // console.log(response);
             alert('Survey submitted successfully')
         }
         catch (err) {

@@ -1,12 +1,14 @@
 <% include ./partials/adminTop %>
 
 <div class="col-10 mainarea fullheight">
+        <h4> Survey answered by <%= patient.firstName %> <%= patient.lastName %> </h4>
         <div id="surveyContainer" class="answerSurveyContainer"></div>
 
 </div>
 
 <script>
-    
+        const surveyData = `<%- surveyData %>`;
+        const surveyAnswers = `<%-surveyAnswers%>`;    
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

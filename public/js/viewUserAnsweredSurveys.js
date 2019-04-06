@@ -9,6 +9,6 @@ $("#surveyContainer").Survey({
     data,
     onComplete(survey) {
         var resultAsString = JSON.stringify(survey.data);
-        console.log(resultAsString); //send Ajax request to your web server.
+        // console.log(resultAsString); //send Ajax request to your web server.
     }
 });

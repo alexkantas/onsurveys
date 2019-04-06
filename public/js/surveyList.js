@@ -11,7 +11,7 @@ ListOptionsLinkBtn.click(async function (e) {
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         })
-        console.log(response);
+        // console.log(response);
         if (response.survey.visible === true) {
             console.log(`#${surveyId}`);
             $(`#${surveyId}`).html(`<i class="fas fa-eye"></i>Visible`)

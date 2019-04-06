@@ -29,7 +29,7 @@ export async function patientProfile(req, res, next) {
         const userId = req.params.id
         const patient = await User.findById(ObjectId(userId))
         if (!patient) throw Error(`Patient with id ${userId} not found`)
-        res.render('patientProfile', { title, user: req.user, patient })
+        res.render('patientProfile', { title, user: req.user, patient , surveys: patient.answeredSurveys, moment})
     }
     catch (err) {
         next(err)
@@ -42,18 +42,13 @@ export function createSurveyPage(req, res, next) {
 }
 
 export async function createSurvey(req, res, next) {
-    // Step 2 (This code run on PC  or on Heroku Computers)
-    console.log('step2');
     try {
         const { surveyTitle: title, surveyText: surveyData } = req.body;
         // const surveyData = req.body.surveyText
         // const title = req.body.surveyTitle
         const survey = new Survey({ surveyData, title })
         await survey.save();
-        console.log('HA HA trollarw ton  chrome kai den tou stelnw amesws to response');
-        setTimeout(() => {
-            res.status(201).json({ success: true, surveyData, title })
-        }, 10000)
+        res.status(201).json({ success: true, surveyData, title })
     }
     catch (error) {
         next(error)
@@ -120,8 +115,16 @@ export async function deleteSurvey(req, res, next) {
 export async function viewAnsweredSurvey(req, res, next) {
     try {
         const title = ' View Answers'
-    
-        res.render('viewAnsweredSurvey', { title, user: req.user })
+        const userId = req.params.userId
+        const patient = await User.findById(ObjectId(userId))
+        if(!patient) throw Error(`Patient with id ${userId} not found`)
+        const answeredSurveys = patient.answeredSurveys
+        const surveyId = req.params.surveyId
+        const survey = answeredSurveys.find(survey => surveyId == survey.surveyId.toString())
+        const surveyData = survey.surveyData
+        const surveyAnswers = survey.surveyAnswers
+        res.render('viewAnsweredSurvey', { title, user: req.user , patient, surveyData, surveyAnswers})        
+
     }
     catch (err) {
         next(err)

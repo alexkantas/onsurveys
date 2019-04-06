@@ -18,7 +18,6 @@ const survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOpti
 
 
 SaveSurveyBtn.addEventListener('click', async e => {
-    //Step1 (This code run on Chrome)
     console.log('step1');
     const surveyTitle = JSON.parse(survey.text).title;
     
@@ -41,11 +40,9 @@ SaveSurveyBtn.addEventListener('click', async e => {
         })
         $(loadingID).hide()
         $(saveSurveyID).text('Save Survey')
-        ////Step 3 (This code run on Chrome)
-        console.log('step3');
-        console.log(response);
-        console.log('Survey Data:',response.surveyData)
-        console.log('Title:',response.title)
+        // console.log(response);
+        // console.log('Survey Data:',response.surveyData)
+        // console.log('Title:',response.title)
         alert('Survey created')
 
         window.location.href=`/admin/surveyList`

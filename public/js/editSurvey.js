@@ -41,7 +41,6 @@ UpdateSurveyBtn.addEventListener('click', async e => {
         })
         $(loadingID).hide()
         $(saveSurveyID).text('Update Survey')
-        ////Step 3 (This code run on Chrome)
         console.log('step3');
         console.log(response);
         console.log('Survey Data:', response.survey.surveyData)
