@@ -55,6 +55,7 @@ ul{
 .alert-danger{
   color:white;
 }
+
 /* icons in sidebar*/
 .fas{
 margin-right: 5px;
@@ -229,9 +230,16 @@ span:focus, .svd_container.sv_bootstrap_css div:focus, .svd_container.sv_bootstr
 
 #createsurveyListArea{
   max-height: 80vh;
-
 }
 
+#userSurveyList{
+  margin-top:15px;
+  float:left;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 70vh;
+
+}
 .alert-danger {
   color: #721c24;
   background-color: #f8d7da;
