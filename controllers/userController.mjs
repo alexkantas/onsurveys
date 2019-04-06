@@ -2,6 +2,7 @@ import User from '../models/user.model'
 import Survey from '../models/survey.model'
 import mongoose from 'mongoose'
 import moment from 'moment'
+import bcrypt from 'bcrypt'
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -18,12 +19,16 @@ export function myProfile(req, res, next) {
 
 export async function updateMyProfile(req, res, next) {
     try {
-        const { id, name, lastName, password } = req.body
+        let { id, name, lastName, password } = req.body
         const user = await User.findById(ObjectId(id))
         if (!user) throw Error(`User with id [${id}] not found`)
         if (name) user.firstName = name
         if (lastName) user.lastName = lastName
-        if (password) user.password = password
+        if (password) { 
+            const hashedPassword = await bcrypt.hash(password, 9);
+            password = hashedPassword
+            user.password = password
+        }
         await user.save();
         res.json({ id, name, lastName, user })
     } catch (err) {

@@ -1,5 +1,6 @@
 import User from '../models/user.model'
 import passport from 'passport'
+import bcrypt from 'bcrypt'
 
 const navBarElements = []
 
@@ -26,16 +27,14 @@ export function registerPage(request, response, next) {
 export async function register(request, response, next) {
     const title = 'Register'
     try {
-        const { name: firstName, lname: lastName, email, password } = request.body
+        let { name: firstName, lname: lastName, email, password } = request.body
+        const hashedPassword = await bcrypt.hash(password, 9);
+        password = hashedPassword
         const user = new User({ firstName, lastName, email, password })
         await user.save();
-        // response.json({ success: true, user: user });
         response.redirect('/login');
-
     } catch (error) {
-        // throw Error(`Something went wrong.`)
         response.render('register', {title, navBarElements, user: request.user, wrongInput: true });
-        // response.json({ success: false, error })
     }
 }
 

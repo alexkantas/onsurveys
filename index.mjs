@@ -1,5 +1,4 @@
 import express from 'express'
-import path from 'path'
 import ejs from 'ejs'
 import mainRouter from './routes/mainRoutes'
 import dotenv from 'dotenv'
@@ -11,6 +10,7 @@ import userRouter from './routes/userRoutes.mjs';
 import passport from 'passport'
 import passportLocal from 'passport-local'
 import User from './models/user.model'
+import bcrypt from 'bcrypt'
 
 dotenv.config()
 const app = express();
@@ -40,13 +40,16 @@ passport.deserializeUser(async function (id, done) {
 
 passport.use(new LocalStrategy(
   function (username, password, done) {
-    User.findOne({ email: username, password }, function (err, user) {
+    User.findOne({ email: username }, function (err, user) {
       if (err) { return done(err); }
-      if (user) { return done(null, user); }
-      return done(null, false, { message: 'Incorrect credentials' });
+      if (!user) return done(null, false, { message: 'Incorrect credentials' });
+      bcrypt.compare(password, user.password).then(function (res){
+        if (res === true) { return done(null, user); }
+      })
     });
   }
 ));
+
 
 app.use('/', mainRouter)
 app.use('/admin', adminAuth, adminRouter)
@@ -63,10 +66,6 @@ app.use((error, req, res, next) => {
 
 
 function adminAuth(req, res, next) {
-  // req.user = {
-  //   email:'ADMIN'
-  // }
-  // return next();
   if (req.user && req.user.isAdmin) {
     next();
   } else {
@@ -75,10 +74,6 @@ function adminAuth(req, res, next) {
 }
 
 function userAuth(req, res, next) {
-  //  req.user = {
-  //   email:'ADMIN'
-  // }
-  // return next();
   if (req.user) {
     next();
   } else {
