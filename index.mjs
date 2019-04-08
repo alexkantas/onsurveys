@@ -45,6 +45,7 @@ passport.use(new LocalStrategy(
       if (!user) return done(null, false, { message: 'Incorrect credentials' });
       bcrypt.compare(password, user.password).then(function (res){
         if (res === true) { return done(null, user); }
+         return done(null, false); 
       })
     });
   }
