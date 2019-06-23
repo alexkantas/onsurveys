@@ -34,7 +34,8 @@ export async function register(request, response, next) {
         await user.save();
         response.redirect('/login');
     } catch (error) {
-        response.render('register', {title, navBarElements, user: request.user, wrongInput: true });
+        console.log(error, error && error.message);
+        response.status(500).render('register', { title, navBarElements, user: request.user, wrongInput: true });
     }
 }
 
@@ -45,13 +46,13 @@ export function login(request, response, next) {
         if (!user) { return response.render('login', { title, navBarElements, user: request.user, wrongInput: true }); }
         request.logIn(user, function (err) {
             if (err) { return next(err); }
-            if(request.user.isAdmin) return response.redirect('/admin');
+            if (request.user.isAdmin) return response.redirect('/admin');
             return response.redirect('/user');
         });
     })(request, response, next);
 }
 
-export function logout(request,response,next){
+export function logout(request, response, next) {
     request.logout();
     response.redirect('/')
 }
